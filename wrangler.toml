@@ -1,0 +1,5 @@
+name = "router"
+type = "webpack"
+account_id = "a1a60969d403b289d2364d1039788b35"
+workers_dev = true
+route = "codeclub-4.trespass.io"
