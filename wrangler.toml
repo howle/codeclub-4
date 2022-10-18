@@ -1,5 +1,8 @@
-name = "router"
+name = "myapp"
 type = "webpack"
+
 account_id = "a1a60969d403b289d2364d1039788b35"
 workers_dev = true
 route = "codeclub-4.trespass.io"
+zone_id = "f280cc043aa0ac73c0b11ccd791b5fca"
+compatibility_date = "2022-10-18"

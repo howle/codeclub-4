@@ -1,13 +1,63 @@
 import { Router } from 'itty-router'
 
+
 // Create a new router
 const router = Router()
 
-/*
-Our index route, a simple hello world.
-*/
+
+//fix favicon.ico dirty:
+router.get("/favicon.ico", () => new Response('try path /secre', { status: 200 })); 
+
+console.log('try /secre')
+
 router.get("/", () => {
-  return new Response("howdy.")
+  return new Response('Level 1: Hack me :) (traversal, we are all =, right?)')
+    console.log('try /secre')
+
+})
+
+
+router.get("/secre", () => {
+  return new Response("Level 2. - What is Blue + Yellow? append to /secret/ :) " );
+  //return new Response(console.log(`try path /secre`))
+})
+
+router.get("/secret/green", () => {
+  return new Response("Level 3. - What are two numbers that are equal to each other, when added create 10? (please  write LITERAL math expression after /quick/maffs/)" );
+  //return new Response(console.log(`try path /secre`))
+})
+
+router.get("/quick/maffs/:text", ({ params }) => {
+  // 5+5= expected 
+    console.log("visit codeclub-4.trespass.io/(ADD KEY HERE)")
+
+  let input = decodeURIComponent(params.text)
+
+  // Construct a buffer from our input
+  let buffer = Buffer.from(input, "utf8")
+
+  // Serialise the buffer into a base64 string
+  let base64 = buffer.toString("base64")
+ 
+
+  //response.headers.append(‘Set-Cookie’, ‘visit:codeclub-4.trespass.io=true’);
+  // Return the HTML with the string to the client
+  return new Response(`<!DOCTYPE html> <p>Level 4. Visit the following path - if correct, you win. <code>${base64}</code></p>`, {
+    headers: {
+      "Content-Type": "text/html"
+    }
+  })
+})
+
+router.get("/NSs1PQ==", () => {
+  //const ay = request.cf.useragent = 'try_key_for_path';
+  return new Response(`<p>Truly 1337, great work. Hacker name unlocked, The Color of your shirt, and your private key. Feel free to email me your hacker name  @ king@mail.com ;)</p>`, {
+    headers: {
+      "Content-Type": "text/html",
+ //     "Set-Cookie": "try_key_for_path=hehe"
+    }
+  })
+  //return new Response(console.log(`try path /secre`))
 })
 
 /*
@@ -16,7 +66,14 @@ URL.
 
 Try visit /example/hello and see the response.
 */
-router.get("/example/:text", ({ params }) => {
+
+
+
+
+///
+/*
+
+router.get("/secret/green/:text", ({ params }) => {
   // Decode text like "Hello%20world" into "Hello world"
   let input = decodeURIComponent(params.text)
 
@@ -27,7 +84,7 @@ router.get("/example/:text", ({ params }) => {
   let base64 = buffer.toString("base64")
 
   // Return the HTML with the string to the client
-  return new Response(`<p>Base64 encoding: <code>${base64}</code></p>`, {
+  return new Response(`<p>Maybe this is right? Here is the key :) - Good luck: <code>${base64}</code></p>`, {
     headers: {
       "Content-Type": "text/html"
     }
@@ -35,6 +92,11 @@ router.get("/example/:text", ({ params }) => {
 })
 
 /*
+///
+
+
+
+
 This shows a different HTTP method, a POST.
 
 Try send a POST request using curl or another tool.
@@ -46,12 +108,12 @@ $ curl -X POST <worker> -H "Content-Type: application/json" -d '{"abc": "def"}'
 router.post("/post", async request => {
   // Create a base object with some fields.
   let fields = {
-    "asn": request.cf.asn,
-    "colo": request.cf.colo
+    "ima ban u": request.cf.asn,
+    "u 2": request.cf.colo
   }
 
   // If the POST data is JSON then attach it to our response.
-  if (request.headers.get("Content-Type") === "application/json") {
+  if (request.headers.post("Content-Type") === "application/json") {
     fields["json"] = await request.json()
   }
 
@@ -71,7 +133,7 @@ above, therefore it's useful as a 404 (and avoids us hitting worker exceptions, 
 
 Visit any page that doesn't exist (e.g. /foobar) to see it in action.
 */
-router.all("*", () => new Response("404, not found!", { status: 404 }))
+router.all("*", () => new Response("Not good enough, try harder!", { status: 444 }))
 
 /*
 This snippet ties our worker to the router we deifned above, all incoming requests
