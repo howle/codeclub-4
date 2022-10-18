@@ -11,7 +11,7 @@ router.get("/favicon.ico", () => new Response('try path /secre', { status: 200 }
 console.log('try /secre')
 
 router.get("/", () => {
-  return new Response('Level 1: Hack me :) (traversal, we are all =, right?)')
+  return new Response('Level 1: Hack me :) (remember, we are all "=")')
     console.log('try /secre')
 
 })
